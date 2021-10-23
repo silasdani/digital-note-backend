@@ -19,8 +19,26 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.7'
 # Use Redis adapter to run Action Cable in production
 # gem 'redis', '~> 4.0'
+
+# User Rolify to simply add roles to users
+gem "rolify"
 # Use Active Model has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+# Use ActiveAdmin to easily administrate things
+gem 'activeadmin'
+# Plus integrations with:
+gem 'devise'
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+# Use to simply render Json
+gem 'fast_jsonapi'
+# Use to generate fake data
+gem 'faker', '2.1.2'
+# Pagination
+gem 'kaminari'
+# Handles CORS
+gem 'rack-cors', '1.0.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
