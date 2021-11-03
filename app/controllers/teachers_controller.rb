@@ -87,7 +87,7 @@ class TeachersController < ApplicationController
         render 'edit'
       end
 
-      render json: TeacherSerializer.new(@teacher).serialized_json,
+      render json: TeacherSerializer.new(@teacher).serialized_json
     end
 
     private
