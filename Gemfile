@@ -40,8 +40,18 @@ gem 'kaminari'
 # Handles CORS
 gem 'rack-cors', '1.0.2'
 
+# Admin interface
+gem 'formtastic', '~> 4.0.0.rc1'
+gem 'activeadmin_addons'
+
 # Use Active Storage variant
-# gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.2'
+gem 'active_storage_validations', '0.8.2'
+gem 'mini_magick', '4.9.5'
+gem 'aws-sdk-s3', require: false
+
+#Use paginate
+gem 'will_paginate'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false

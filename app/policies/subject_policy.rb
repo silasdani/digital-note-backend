@@ -1,0 +1,2 @@
+class SubjectPolicy < ProfileOptionsPolicy
+end

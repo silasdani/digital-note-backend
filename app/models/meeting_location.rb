@@ -1,0 +1,2 @@
+class MeetingLocation < ApplicationRecord
+end

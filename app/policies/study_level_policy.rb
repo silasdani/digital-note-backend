@@ -1,0 +1,2 @@
+class StudyLevelPolicy < ProfileOptionsPolicy
+end

@@ -1,0 +1,2 @@
+class StudyLevel < ApplicationRecord
+end

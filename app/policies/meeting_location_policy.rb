@@ -1,0 +1,2 @@
+class MeetingLocationPolicy < ProfileOptionsPolicy
+end
