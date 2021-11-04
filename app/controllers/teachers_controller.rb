@@ -42,10 +42,7 @@ class TeachersController < ApplicationController
         @teacher.create_teacher_profile!
       end
       @categories = Subject.all.pluck(:category).uniq
-      render json: { 
-        teacher: TeacherSerializer.new(@teacher).serialized_json,
-        categories: @categories
-      } 
+      render json: TeacherSerializer.new(@teacher).serialized_json
     end
     
     def update
@@ -83,11 +80,11 @@ class TeachersController < ApplicationController
       if @teacher.update(teacher_params)
         flash[:success] = "Profile updated"
         redirect_to @teacher
+        render json: TeacherSerializer.new(@teacher).serialized_json
       else
-        render 'edit'
+        render json: { error: "Forbidden" }, status: 422
       end
 
-      render json: TeacherSerializer.new(@teacher).serialized_json
     end
 
     private
