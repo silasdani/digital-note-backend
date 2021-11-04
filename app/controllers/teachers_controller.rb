@@ -1,4 +1,15 @@
 class TeachersController < ApplicationController
+
+    def create
+      @teacher = Teacher.new(teacher_params)
+      if (@teacher.save!)
+        render json: TeacherSerializer.new(@teacher).serialized_json
+      else
+        render json: { error: "Cannot create Teacher!" }, status: 422
+      end
+
+    end
+
     def show
       @teacher = Teacher.find(params[:id])
       @reviews = @teacher.teacher_profile.reviews
