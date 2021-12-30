@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register Subject do
-  menu :parent => "Profile options"
+  menu parent: 'Profile options'
   permit_params :title, :category
 
   index do
@@ -26,7 +28,7 @@ ActiveAdmin.register Subject do
       @subject = Subject.find(params[:id])
       @subject.update(permitted_params[:subject])
       if @subject.errors.blank?
-        redirect_to admin_subjects_path, :notice => "Subjects updated successfully."
+        redirect_to admin_subjects_path, notice: 'Subjects updated successfully.'
       else
         render :edit
       end

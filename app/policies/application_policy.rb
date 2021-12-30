@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ApplicationPolicy
   attr_reader :user, :record
 
@@ -56,7 +58,4 @@ class ApplicationPolicy
   def is_correct_user?
     @user == @record
   end
-
-
-  
 end

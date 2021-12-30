@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register StudyLevel do
-  menu :parent => "Profile options"
+  menu parent: 'Profile options'
   permit_params :name
 
   index do
@@ -23,7 +25,7 @@ ActiveAdmin.register StudyLevel do
       @level = StudyLevel.find(params[:id])
       @level.update(permitted_params[:subject])
       if @level.errors.blank?
-        redirect_to admin_subjects_path, :notice => "Study levels updated successfully."
+        redirect_to admin_subjects_path, notice: 'Study levels updated successfully.'
       else
         render :edit
       end

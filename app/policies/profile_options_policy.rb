@@ -1,5 +1,7 @@
-class ProfileOptionsPolicy  < ApplicationPolicy
-  class Scope < Struct.new(:user, :scope)
+# frozen_string_literal: true
+
+class ProfileOptionsPolicy < ApplicationPolicy
+  Scope = Struct.new(:user, :scope) do
     def resolve
       scope
     end
@@ -44,5 +46,4 @@ class ProfileOptionsPolicy  < ApplicationPolicy
   def destroy_all?
     is_admin?
   end
-  
 end

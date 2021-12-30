@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class StudentPolicy < ApplicationPolicy
-  class Scope < Struct.new(:user, :scope)
+  Scope = Struct.new(:user, :scope) do
     def resolve
       scope
     end
@@ -14,7 +16,7 @@ class StudentPolicy < ApplicationPolicy
   end
 
   def index?
-    is_admin? 
+    is_admin?
   end
 
   def show?
@@ -44,5 +46,4 @@ class StudentPolicy < ApplicationPolicy
   def destroy_all?
     is_admin?
   end
-
 end

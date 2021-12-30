@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 ActiveAdmin.register MeetingLocation do
-  menu :parent => "Profile options"
+  menu parent: 'Profile options'
   permit_params :name
 
   index do
@@ -23,7 +25,7 @@ ActiveAdmin.register MeetingLocation do
       @loc = MeetingLocation.find(params[:id])
       @loc.update(permitted_params[:subject])
       if @loc.errors.blank?
-        redirect_to admin_meeting_locations_path, :notice => "Meeting locations updated successfully."
+        redirect_to admin_meeting_locations_path, notice: 'Meeting locations updated successfully.'
       else
         render :edit
       end

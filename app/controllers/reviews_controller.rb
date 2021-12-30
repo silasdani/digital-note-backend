@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 class ReviewsController < ApplicationController
-  before_action :set_review!, only: [:edit, :update, :destroy]
+  before_action :set_review!, only: %i[edit update destroy]
 
   def new
     flash[:error] = nil
@@ -8,13 +10,12 @@ class ReviewsController < ApplicationController
 
   def create
     @review = Review.create(review_params)
-    @teacher = Teacher.find(params["review"]["teacher_id"])
+    @teacher = Teacher.find(params['review']['teacher_id'])
     if @review.valid?
-      redirect_to teacher_path(@teacher)
     else
       flash.now[:error] = "Comment couldn't be created. Please check the errors."
-      redirect_to teacher_path(@teacher)
     end
+    redirect_to teacher_path(@teacher)
   end
 
   def edit
@@ -38,7 +39,7 @@ class ReviewsController < ApplicationController
     redirect_to student_path(@student)
   end
 
-# Private helper methods
+  # Private helper methods
   private
 
   def set_review!

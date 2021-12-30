@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTeacherProfiles < ActiveRecord::Migration[6.0]
   def change
     create_table :teacher_profiles do |t|
@@ -11,6 +13,6 @@ class CreateTeacherProfiles < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_index :teacher_profiles, [:user_id, :created_at]
+    add_index :teacher_profiles, %i[user_id created_at]
   end
 end
