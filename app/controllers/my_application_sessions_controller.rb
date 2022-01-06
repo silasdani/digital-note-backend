@@ -1,8 +1,17 @@
 class MyApplicationSessionsController < Devise::SessionsController
-    # responders :my_application
+    responders :my_application
 
     def create
-      super { |resource| @resource = resource }
+      raise super.inspect
+      super { |resource| 
+        puts resource
+        @resource = resource }
+    end
+
+    def new
+      super { |resource| 
+        puts resource.as_json
+        @resource = resource }
     end
 
 end
