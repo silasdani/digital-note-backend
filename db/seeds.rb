@@ -8,7 +8,7 @@ User.create!(
   email: 'admin@example.ro',
   password: 'password',
   password_confirmation: 'password'
-)
+).add_role(:admin)
 
 User.create!(
   first_name: 'M',
@@ -16,7 +16,7 @@ User.create!(
   email: 'manager@example.ro',
   password: 'password',
   password_confirmation: 'password'
-)
+).add_role(:manager)
 
 # Generate a bunch of additional users.
 15.times do |n|

@@ -9,6 +9,11 @@ class User < ApplicationRecord
   validates :email, presence: true, length: { maximum: 255 }, format: { with: VALID_EMAIL_REGEX }, uniqueness: true
   validates :password, presence: true, length: { minimum: 6 }, allow_nil: true
   has_secure_password
+  after_create :assign_default_role
+
+  def assign_default_role
+    add_role(:user) if roles.blank?
+  end
 
   # Returns the hash digest of the given string.
   def self.digest(string)
