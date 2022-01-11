@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  credits: 1
+  start_time: 2022-01-11 15:17:02
+  end_time: 2022-01-11 15:17:02
+  icon: MyString
+  access_token: MyString
+  join_token: MyString
+  max_users: 1
+
+two:
+  name: MyString
+  credits: 1
+  start_time: 2022-01-11 15:17:02
+  end_time: 2022-01-11 15:17:02
+  icon: MyString
+  access_token: MyString
+  join_token: MyString
+  max_users: 1
