@@ -5,10 +5,10 @@ class SessionsController < ApplicationController
 
     def create
       user = User.find_by(email: params[:session][:email].downcase)
-      token = AuthenticationTokenService.auth(user)
-  
+      
       if user && user.authenticate(params[:session][:password])
-        render json: {token: token}
+        token = AuthenticationTokenService.auth(user)
+        render json: {token: token}, status: :ok
       else
         render json: { error: "Invalid email or password"  }, status: :unprocessable_entity 
       end
