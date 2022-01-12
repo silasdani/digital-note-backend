@@ -1,16 +1,21 @@
 class CoursesController < ApplicationController
-  after_create :add_role, only: %i[create]
+  after_action :add_role, only: %i[create]
+  before_action :logged_in_user
 
-  def index; end
+  def index
+    @courses = Course.all
+    render json: CourseSerializer.new(@courses).serialized_json, status: :ok
+  end
 
   def create
-    # @user = current_user
-    # @course = Course.new(course_params)
-    # if @course.save
-    #     render json: @course
-    # else
-    #     render json: {error: "Cannot create a new course"}, status: :unprocessable_entity
-    # end
+    @user = current_user
+    @course = @user.courses.new(course_params)
+
+    if @course.save
+      render json: CourseSerializer.new(@course).serialized_json, status: :created
+    else
+      render json: { error: 'Cannot create a new course' }, status: :unprocessable_entity
+    end
   end
 
   def show; end

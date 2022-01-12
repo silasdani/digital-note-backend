@@ -2,6 +2,7 @@
 
 class ApplicationController < ActionController::Base
   include Pundit
+  include SessionsHelper
   skip_before_action :verify_authenticity_token
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
 
@@ -13,8 +14,6 @@ class ApplicationController < ActionController::Base
 
   # Confirms a logged-in user.
   def logged_in_user
-    false unless logged_in?
-
-    true
+    render json: { error: 'You are not logged in'} unless logged_in?
   end
 end

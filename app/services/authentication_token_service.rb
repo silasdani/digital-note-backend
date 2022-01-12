@@ -1,9 +1,7 @@
-
-   
 require 'jwt'
 
 class AuthenticationTokenService
-    HMAC_SECRET = "gps_key"
+    HMAC_SECRET = "licenta2022"
     ALGORITHM_TYPE = 'HS256'
 
     def self.call(json)

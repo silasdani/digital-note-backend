@@ -1,4 +1,4 @@
 class Course < ApplicationRecord
   resourcify
-  belongs_to :users
+  belongs_to :user
 end
