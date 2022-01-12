@@ -1,34 +1,22 @@
 
    
 class SessionsController < ApplicationController
+    include SessionsHelper
 
     def create
       user = User.find_by(email: params[:session][:email].downcase)
       token = AuthenticationTokenService.auth(user)
   
       if user && user.authenticate(params[:session][:password])
-        if user.activated?
-          log_in user
-          remember(user)
-          render json: {token: token}, status: 201
-        else
-          message = "Account not activated\n"
-          message += "Check your email for the activation link."
-  
-          render json: { error: user.errors.messages, message: message  }
-        end
+        render json: {token: token}
       else
-        render json: { error: "Invalid email or password"  }, status: :forbidden 
+        render json: { error: "Invalid email or password"  }, status: :unprocessable_entity 
       end
     end
   
     def destroy
       log_out if logged_in?
-      render json: {"message": 'Successfully logged out'}
-    end
-  
-    def ping
-      render json: {"ping": "pong"}, status: 200 
+      head :no_content
     end
   
     private
