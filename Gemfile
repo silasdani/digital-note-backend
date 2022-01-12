@@ -25,6 +25,9 @@ gem 'faker'
 gem 'rubocop'
 gem 'pundit'
 gem 'rolify'
+gem 'jwt'
+gem 'fast_jsonapi'
+gem 'rack-cors', :require => 'rack/cors'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

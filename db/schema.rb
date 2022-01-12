@@ -52,12 +52,12 @@ ActiveRecord::Schema.define(version: 2022_01_11_161007) do
     t.string "password_digest", default: "", null: false
     t.string "email", default: "", null: false
     t.string "phone_no"
-    t.string "address_city", default: ""
-    t.string "address_street", default: ""
-    t.string "address_no", default: ""
-    t.string "address_country", default: ""
-    t.string "address_county", default: ""
-    t.string "profile_pic", default: "", null: false
+    t.string "address_city"
+    t.string "address_street"
+    t.string "address_no"
+    t.string "address_country"
+    t.string "address_county"
+    t.string "profile_pic"
     t.string "remember_digest"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"

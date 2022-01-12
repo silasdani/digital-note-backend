@@ -5,13 +5,13 @@ class CoursesController < ApplicationController
     end
 
     def create
-        @user = current_user
-        @course = Course.new(course_params)
-        if @course.save
-            render json: @course
-        else
-            render json: {error: "Cannot create a new course"}, status: :unprocessable_entity
-        end
+        # @user = current_user
+        # @course = Course.new(course_params)
+        # if @course.save
+        #     render json: @course
+        # else
+        #     render json: {error: "Cannot create a new course"}, status: :unprocessable_entity
+        # end
 
     end
 
