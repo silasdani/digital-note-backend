@@ -85,10 +85,9 @@ class User < ApplicationRecord
       address_street,
       address_no,
       address_county,
-      address_country,
+      address_country
     ].compact.join(', ')
   end
-
 
   private
 
