@@ -1,9 +1,10 @@
 class UsersController < ApplicationController
-  # before_action :authorized_user
   before_action :logged_in_user
 
   def index
     @users = User.all
+    authorize @users
+    
     render json: UserSerializer.new(@users).serialized_json, status: :ok
   end
 
@@ -24,6 +25,8 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    authorize @user
+
     if @user.update(user_params)
       render json: UserSerializer.new(@user).serialized_json, status: :ok
     else
@@ -46,8 +49,7 @@ end
 private
 
 def authorized_user
-  # authorize @user
-  # authorize @users
+  authorize current_user
 end
 
 def user_params

@@ -14,6 +14,6 @@ class ApplicationController < ActionController::Base
 
   # Confirms a logged-in user.
   def logged_in_user
-    render json: { error: 'You are not logged in'} unless logged_in?
+    render json: { error: 'You are not logged in' } unless logged_in?
   end
 end

@@ -1,4 +1,6 @@
 class UserPolicy < ApplicationPolicy
+  include SessionsHelper
+
   class Scope < Scope
     def resolve
       scope.all
@@ -6,13 +8,12 @@ class UserPolicy < ApplicationPolicy
   end
 
   def index?
-    @use.has_role? :admin
+    @user.has_role? :admin
   end
 
-  def edit?
-  end
+  def edit?; end
 
-  def update?
-  end
-  
+  def update?; end
+
+  def show?; end
 end

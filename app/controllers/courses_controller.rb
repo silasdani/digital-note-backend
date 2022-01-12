@@ -30,5 +30,5 @@ def course_params
 end
 
 def add_role
-  @user.add_role :moderator, @post
+  @user.add_role :moderator, @course
 end
