@@ -5,7 +5,8 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       token = AuthenticationTokenService.auth(user)
       log_in user
-      render json: { token: token }, status: :ok
+      render json: user.roles, status: :ok
+      # render json: { token: token }, status: :ok
     else
       render json: { error: 'Invalid email or password' }, status: :unprocessable_entity
     end

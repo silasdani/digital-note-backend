@@ -14,7 +14,7 @@ class User < ApplicationRecord
   after_create :assign_default_role
 
   def assign_default_role
-    add_role(:user) if roles.blank?
+    add_role :user if roles.blank?
   end
 
   # Returns the hash digest of the given string.

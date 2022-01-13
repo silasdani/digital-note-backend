@@ -25,7 +25,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    authorize @user
+    authorize @user if @user.id != current_user.id
 
     if @user.update(user_params)
       render json: UserSerializer.new(@user).serialized_json, status: :ok

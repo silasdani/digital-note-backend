@@ -16,4 +16,9 @@ class ApplicationController < ActionController::Base
   def logged_in_user
     render json: { error: 'You are not logged in' } unless logged_in?
   end
+
+  def authorized_user
+    @user = current_user
+    authorize @user
+  end
 end
